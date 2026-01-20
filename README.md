@@ -1,0 +1,1 @@
+# streamlit-vagas-monitor
