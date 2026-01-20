@@ -56,7 +56,17 @@ try:
 
                 st.caption(
                     f"Publicado em: {vaga.get('publishedDate', 'N/A')}")
+        st.markdown("---")
+        st.markdown(
+            """
+            # 🙋 Sobre o Autor
+            ## 📫 Contato
 
+            - Email: felipperodrigues00@gmail.com
+            - LinkedIn: https://www.linkedin.com/in/felippe-santos-54058111a/
+            - Medium: https://medium.com/@felipperodrigues00
+            """
+        )
 except Exception as e:
     st.error("Erro ao carregar vagas")
     st.exception(e)
