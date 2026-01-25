@@ -11,7 +11,8 @@ st.title("🔎 Vagas disponíveis")
 @st.cache_data(ttl=300)
 def carregar_vagas():
     # response = requests.get(N8N_ENDPOINT, timeout=30)
-    response = requests.get(os.getenv("E",st.secrets["E"]), timeout=30)
+    endpoint = os.getenv("E") or st.secrets["E"]
+    response = requests.get(endpoint, timeout=30)
     response.raise_for_status()
     return response.json()
 
