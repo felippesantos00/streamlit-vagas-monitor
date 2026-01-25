@@ -1,17 +1,17 @@
 import streamlit as st
 import requests
-
+import os
 st.set_page_config(page_title="Vagas", layout="wide")
 
 st.title("🔎 Vagas disponíveis")
 
-N8N_ENDPOINT = "http://192.168.15.95:5678/webhook/84fb40e7-05a6-4bc1-ac67-839296772b3a"  # troque aqui
+# N8N_ENDPOINT = "http://192.168.15.95:5678/webhook/84fb40e7-05a6-4bc1-ac67-839296772b3a"  # troque aqui
 
 
 @st.cache_data(ttl=300)
 def carregar_vagas():
-    response = requests.get(N8N_ENDPOINT, timeout=30)
-    response = requests.get(st.secrets['E'], timeout=30)
+    # response = requests.get(N8N_ENDPOINT, timeout=30)
+    response = requests.get(os.getenv("E",st.secrets["E"]), timeout=30)
     response.raise_for_status()
     return response.json()
 
